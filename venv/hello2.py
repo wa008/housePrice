@@ -1,4 +1,4 @@
-# 算法测试
+# 数据预处理
 
 import pandas as pd
 import numpy as np
@@ -11,14 +11,12 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC, LinearSVC
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import Perceptron
 from sklearn.linear_model import SGDClassifier
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBRegressor
-from sklearn.ensemble import GradientBoostingRegressor
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -26,13 +24,24 @@ warnings.filterwarnings("ignore")
 train_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/train.csv')
 test_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/test.csv')
 
-# print(train_df.info())
-# print(train_df.shape)
+print(train_df.info())
+print(train_df.shape)
 train_data = pd.DataFrame(np.array([i for i in range(1,1461)]),columns = ['id'])
 # print("train_data.info() = ", train_data.info())
 train_data.insert(0, 'MSSubClass' , train_df['MSSubClass'])
 train_data.insert(1, 'LotArea', train_df['LotArea'])
 train_data.insert(2, 'LotFrontage', train_df['LotFrontage'])
+
+# train_data['OverallQual'] = train_df['OverallQual']
+# train_data['OverallCond'] = train_df['OverallCond']
+# train_data['YearBuilt'] = train_df['YearBuilt']
+# train_data['YearRemodAdd'] = train_df['YearRemodAdd']
+# train_data['MasVnrArea'] = train_df['MasVnrArea']
+# train_data['BsmtFinSF1'] = train_df['BsmtFinSF1']
+# train_data['BsmtFinSF2'] = train_df['BsmtFinSF2']
+# train_data['BsmtUnfSF'] = train_df['BsmtUnfSF']
+# train_data['TotalBsmtSF'] = train_df['TotalBsmtSF']
+
 
 x_train = train_data.drop('id',axis=1)
 y_train = train_df['SalePrice']
@@ -52,55 +61,6 @@ logistic.fit(x_train,y_train)
 y_pred = logistic.predict(x_test)
 acc_logistic = round(logistic.score(x_train , y_train) * 100 , 2)
 print("acc_logistic = ",acc_logistic)
-
-dt = DecisionTreeRegressor()
-dt.fit(x_train , y_train)
-y_pred = dt.predict(x_test)
-acc_dt = round(dt.score(x_train , y_train) * 100 , 2)
-print("acc_DecisionTree = ",acc_dt)
-
-rf = RandomForestRegressor()
-rf.fit(x_train , y_train)
-y_pred = rf.predict(x_test)
-acc_rf = round(rf.score(x_train , y_train) * 100 , 2)
-print("acc_RandomForest = ",acc_rf)
-
-xgb = XGBRegressor()
-xgb.fit(x_train,y_train)
-y_pred = xgb.predict(x_test)
-acc_xgb = round(xgb.score(x_train , y_train) * 100 , 2)
-print("acc_xgb = ",acc_xgb)
-
-gbdt = GradientBoostingRegressor()
-gbdt.fit(x_train , y_train)
-y_pred = gbdt.predict(x_test)
-acc_gbdt = round(gbdt.score(x_train , y_train) * 100 , 2)
-print("acc_gbdt = ",acc_gbdt)
-
-
-gbdt2 = GradientBoostingRegressor(
-  loss='ls'
-, learning_rate=0.1
-, n_estimators=100
-, subsample=1
-, min_samples_split=2
-, min_samples_leaf=1
-, max_depth=3
-, init=None
-, random_state=None
-, max_features=None
-, alpha=0.9
-, verbose=0
-, max_leaf_nodes=None
-, warm_start=False
-)
-
-
-gbdt2.fit(x_train , y_train)
-y_pred = gbdt2.predict(x_test)
-acc_gbdt2 = round(gbdt2.score(x_train , y_train) * 100 , 2)
-print("acc_gbdt2 = ",acc_gbdt2)
-
 
 submission = pd.DataFrame({
     "Id":test_data['id'],
