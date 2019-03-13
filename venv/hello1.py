@@ -1,12 +1,9 @@
 # 算法测试
-
 import pandas as pd
 import numpy as np
 import random as rnd
-
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 # machine learning
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC, LinearSVC
@@ -22,14 +19,9 @@ from sklearn.ensemble import GradientBoostingRegressor
 import warnings
 warnings.filterwarnings("ignore")
 
-
 train_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/train.csv')
 test_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/test.csv')
-
-# print(train_df.info())
-# print(train_df.shape)
 train_data = pd.DataFrame(np.array([i for i in range(1,1461)]),columns = ['id'])
-# print("train_data.info() = ", train_data.info())
 train_data.insert(0, 'MSSubClass' , train_df['MSSubClass'])
 train_data.insert(1, 'LotArea', train_df['LotArea'])
 train_data.insert(2, 'LotFrontage', train_df['LotFrontage'])
@@ -78,24 +70,8 @@ acc_gbdt = round(gbdt.score(x_train , y_train) * 100 , 2)
 print("acc_gbdt = ",acc_gbdt)
 
 
-gbdt2 = GradientBoostingRegressor(
-  loss='ls'
-, learning_rate=0.1
-, n_estimators=100
-, subsample=1
-, min_samples_split=2
-, min_samples_leaf=1
-, max_depth=3
-, init=None
-, random_state=None
-, max_features=None
-, alpha=0.9
-, verbose=0
-, max_leaf_nodes=None
-, warm_start=False
-)
-
-
+gbdt2 = GradientBoostingRegressor(loss='ls', learning_rate=0.1, n_estimators=100, subsample=1, min_samples_split=2, min_samples_leaf=1
+        , max_depth=3, init=None, random_state=None, max_features=None, alpha=0.9, verbose=0, max_leaf_nodes=None, warm_start=False)
 gbdt2.fit(x_train , y_train)
 y_pred = gbdt2.predict(x_test)
 acc_gbdt2 = round(gbdt2.score(x_train , y_train) * 100 , 2)
