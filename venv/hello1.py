@@ -77,7 +77,8 @@ y_pred = gbdt2.predict(x_test)
 acc_gbdt2 = round(gbdt2.score(x_train , y_train) * 100 , 2)
 print("acc_gbdt2 = ",acc_gbdt2)
 
-
+print(type(y_pred))
+print(y_pred.shape)
 submission = pd.DataFrame({
     "Id":test_data['id'],
     "SalePrice":y_pred

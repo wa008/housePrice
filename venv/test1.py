@@ -14,5 +14,5 @@ b = np.ones((3,2))
 d = 1
 c = a.dot(b) + d
 
-# print(a)
-
+x = a.reshape(-1)
+print(x)

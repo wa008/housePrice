@@ -1,11 +1,26 @@
-# 方差 6523688000
-# kaggle_score 2.29931
+# 数据预处理
+
 import pandas as pd
 import numpy as np
-import tensorflow as tf
+import random as rnd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+# machine learning
+from sklearn.svm import SVC, LinearSVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import Perceptron
+from sklearn.linear_model import SGDClassifier
+from sklearn.tree import DecisionTreeClassifier
+from xgboost import XGBRegressor
+import warnings
+warnings.filterwarnings("ignore")
 
-train_df = pd.read_csv('input_data/train.csv')
-test_df = pd.read_csv('input_data/test.csv')
+train_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/train.csv')
+test_df = pd.read_csv('C:/Users/hzp/Desktop/housePrice/input/test.csv')
 
 train_data = pd.DataFrame(np.array([i for i in range(1,1461)]),columns = ['id'])
 train_data.insert(0, 'Id', train_df['Id'])
@@ -96,66 +111,24 @@ x_train = train_data
 x_train = x_train.fillna(value=0)
 x_test = x_test.fillna(value=0)
 y_train = y_train.fillna(value=0)
-x_train = x_train.values
-y_train = y_train.values
-x_test = x_test.values
+# print(train_data.info())
+print("train.shape = ", x_train.shape)
+print("test.shape = ", x_test.shape)
 
-x_train = x_train.T
-x_test = x_test.T
-y_train = y_train.reshape(1460, 1)
+logistic = LogisticRegression()
+logistic.fit(x_train, y_train)
+y_pred = logistic.predict(x_test)
+acc_logistic = round(logistic.score(x_train, y_train) * 100, 2)
+print("acc_logistic = ", acc_logistic)
 
-n, m = x_train.shape
-print("x_train.shape = ", x_train.shape)
-print("y_train.shape = ", y_train.shape)
+rf = RandomForestRegressor()
+rf.fit(x_train , y_train)
+y_pred = rf.predict(x_test)
+acc_rf = round(rf.score(x_train , y_train) * 100 , 2)
+print("acc_RandomForest = ",acc_rf)
 
-x_place = tf.placeholder(tf.float32, [37, None], name = "x_placeholder")
-y_place = tf.placeholder(tf.float32, [None, 1], name = "y_placeholder")
-
-layer_dimension = [37, 100, 300, 40, 1]
-n_layers = len(layer_dimension)
-w = [0 for i in range(n_layers)]
-b = [0 for i in range(n_layers)]
-a = [0 for i in range(n_layers)]
-for i in range(1, n_layers):
-    w[i] = tf.Variable(tf.random_normal([layer_dimension[i], layer_dimension[i-1]], stddev = 1, dtype = tf.float32))
-    b[i] = tf.Variable(tf.random_normal([layer_dimension[i], 1], stddev = 1, dtype = tf.float32))
-
-
-a[0] = x_place
-y = 0
-for i in range(1, n_layers):
-    if i == n_layers - 1:
-        y = tf.matmul(w[i], a[i-1]) + b[i]
-    else:
-        a[i] = tf.nn.relu(tf.matmul(w[i], a[i-1]) + b[i])
-
-cross_entropy = tf.reduce_mean(tf.square(y_place - y))
-train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
-
-batch_size = 100
-steps = 20000
-dataset_size = x_train.shape[1]
-print("dataset_size = ", dataset_size)
-with tf.Session() as sess:
-    init = tf.initialize_all_variables()
-    sess.run(init)
-    # print("before w[1] =", sess.run(w[2][2]))
-    for i in range(steps):
-        start = i * batch_size % dataset_size
-        end = min(dataset_size, start + batch_size)
-        sess.run(train_step, feed_dict = {x_place:x_train[:, start:end], y_place:y_train[start:end, :]})
-        if i % 1000 == 0:
-            loss_now_step = sess.run(cross_entropy, feed_dict = {x_place:x_train, y_place:y_train})
-            print(i,loss_now_step)
-    # print("after w[1] =", sess.run(w[2][2]))
-    y_pred = sess.run(y, feed_dict={x_place:x_test})
-    y_pred = y_pred.reshape(-1)
-    print(y_pred)
-    print(type(y_pred))
-    print(y_pred.shape)
-
-    submission = pd.DataFrame({
-        "Id":test_data['id'],
-        "SalePrice":y_pred
-    })
-    # submission.to_csv('input_data/submission.csv',index=False)
+submission = pd.DataFrame({
+    "Id":test_data['id'],
+    "SalePrice":y_pred
+})
+submission.to_csv('C:/Users/hzp/Desktop/housePrice/input/submission.csv',index=False)
