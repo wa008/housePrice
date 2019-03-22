@@ -109,7 +109,7 @@ print("y_train.shape = ", y_train.shape)
 x_place = tf.placeholder(tf.float32, [37, None], name = "x_placeholder")
 y_place = tf.placeholder(tf.float32, [None, 1], name = "y_placeholder")
 
-layer_dimension = [37, 100, 200, 500, 1]
+layer_dimension = [37, 100, 300, 40, 1]
 n_layers = len(layer_dimension)
 w = [0 for i in range(n_layers)]
 b = [0 for i in range(n_layers)]
@@ -131,7 +131,7 @@ cross_entropy = tf.reduce_mean(tf.square(y_place - y))
 train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
 
 batch_size = 100
-steps = 10
+steps = 20000
 dataset_size = x_train.shape[1]
 print("dataset_size = ", dataset_size)
 with tf.Session() as sess:
@@ -142,35 +142,18 @@ with tf.Session() as sess:
         start = i * batch_size % dataset_size
         end = min(dataset_size, start + batch_size)
         sess.run(train_step, feed_dict = {x_place:x_train[:, start:end], y_place:y_train[start:end, :]})
-        if i % 100 == 0:
+        if i % 1000 == 0:
             loss_now_step = sess.run(cross_entropy, feed_dict = {x_place:x_train, y_place:y_train})
             print(i,loss_now_step)
     # print("after w[1] =", sess.run(w[2][2]))
+    y_pred = sess.run(y, feed_dict={x_place:x_test})
+    y_pred = y_pred.reshape(-1)
+    print(y_pred)
+    print(type(y_pred))
+    print(y_pred.shape)
 
-with tf.Session() as sess:
-    init = tf.initialize_all_variables()
-    sess.run(init)
-    x_tf_test = tf.constant(x_test)
-    a_test = [0 for i in range(n_layers)]
-    a_test[0] = x_tf_test
-    for i in range(1, n_layers):
-        print(w[i].shape,b[i].shape)
-    for i in range(1, n_layers):
-        print(type(w[i]),type(b[i]))
-    for i in range(1, n_layers):
-        print(w[i].shape, b[i].shape)
-
-    for i in range(1, n_layers):
-        if i == n_layers-1:
-            y_pred = tf.matmul(w[i], a_test[i-1]) + b[i]
-        else:
-            a_test[i] = tf.nn.relu(tf.matmul((w[i], a_test[i-1]) + b[i]))
-    output = sess.run(y_pred)
-    print("output = ", output)
-    # y_pred = a_test[n_layers-1]
-    #
-    # submission = pd.DataFrame({
-    #     "Id":test_data['id'],
-    #     "SalePrice":y_pred
-    # })
-    # submission.to_csv('input/submission.csv',index=False)
+    submission = pd.DataFrame({
+        "Id":test_data['id'],
+        "SalePrice":y_pred
+    })
+    submission.to_csv('input_data/submission.csv',index=False)
