@@ -9,10 +9,7 @@ def f1():
 
 # f1()
 
-a = np.ones((2,3))
-b = np.ones((3,2))
-d = 1
-c = a.dot(b) + d
-
-x = a.reshape(-1)
-print(x)
+a = 10
+b = a
+b = 1
+print(a)

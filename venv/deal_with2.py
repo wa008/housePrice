@@ -15,26 +15,26 @@ train_data.drop(train_data[(train_data["GrLivArea"]>4000) & (train_data["SalePri
 # plt.figure(figsize = (15, 8))
 # sns.boxplot(train_data.YearBuilt, train_data.SalePrice)
 
-full_data = pd.concat([train_data, test_data], ignore_index=True)
-full_data.drop(['Id'], axis = 1, inplace = True)
-print("full_data.shape =", full_data.shape)
+full = pd.concat([train_data, test_data], ignore_index=True)
+full.drop(['Id'], axis = 1, inplace = True)
+print("full_data.shape =", full.shape)
 
 cols1 = ["PoolQC" , "MiscFeature", "Alley", "Fence", "FireplaceQu", "GarageQual", "GarageCond", "GarageFinish", "GarageYrBlt", "GarageType", "BsmtExposure", "BsmtCond", "BsmtQual", "BsmtFinType2", "BsmtFinType1", "MasVnrType"]
 for col in cols1:
-    full_data[col].fillna("None", inplace=True)
+    full[col].fillna("None", inplace=True)
     # PoolQC表示游泳池数量，空值代表没有，这些缺失值不重要，用None代替
 
 cols=["MasVnrArea", "BsmtUnfSF", "TotalBsmtSF", "GarageCars", "BsmtFinSF2", "BsmtFinSF1", "GarageArea"]
 for col in cols:
-    full_data[col].fillna(0, inplace=True)
+    full[col].fillna(0, inplace=True)
     # 这些缺失值为面积，没有代表为0，用0补充
 
 # 中位数插补
-full_data['LotFrontage']=full_data.groupby(['LotArea'])['LotFrontage'].transform(lambda x: x.fillna(x.median()))
+full['LotFrontage']=full.groupby(['LotArea'])['LotFrontage'].transform(lambda x: x.fillna(x.median()))
 
 # aa = full_data.isnull().sum()
 # print(aa[aa>0].sort_values(ascending = False))
 
-print(full_data.groupby(['Neighborhood'])[['LotFrontage']].agg(['mean','median','count']))
+# print(full_data.groupby(['Neighborhood'])[['LotFrontage']].agg(['mean','median','count']))
 
 # plt.show()
