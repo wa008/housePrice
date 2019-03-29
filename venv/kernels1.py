@@ -11,6 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 df_train = pd.read_csv("input_data/train.csv")
+print(df_train.info())
 # print(df_train.columns)
 # sns.distplot(df_train['SalePrice']) # 将SalePrice可视化
 
@@ -64,10 +65,27 @@ df_train = pd.read_csv("input_data/train.csv")
 df_train.sort_values(by='GrLivArea',ascending=False)[:2]
 df_train = df_train.drop(df_train[df_train['Id']==1299].index)
 df_train = df_train.drop(df_train[df_train['Id']==524].index)
+# var = 'TotalBsmtSF'
+# data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
+# data.plot.scatter(x=var, y='SalePrice',ylim=(0,800000))
 
-var = 'TotalBsmtSF'
-data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
-data.plot.scatter(x=var, y='SalePrice',ylim=(0,800000))
-plt.show()
+df_train['SalePrice'] = np.log(df_train['SalePrice'])
+df_train['GrLivArea'] = np.log(df_train['GrLivArea'])
+df_train['HasBsmt'] = pd.Series(len(df_train['TotalBsmtSF']),index
+            =df_train.index)
+df_train['HasBsmt'] = 0
+df_train.loc[df_train['TotalBsmtSF']>0, 'HasBsmt'] = 1
+df_train.loc[df_train['HasBsmt']==1,'TotalBsmtSF'] = np.log(df_train['TotalBsmtSF'])
 
+# sns.distplot(df_train[df_train['TotalBsmtSF']>0]['TotalBsmtSF'],fit = norm)
+# fig = plt.figure()
+# res = stats.probplot(df_train[df_train['TotalBsmtSF']>0]['TotalBsmtSF'], plot = plt)
 
+# var = 'TotalBsmtSF'
+# plt.scatter(df_train[df_train[var]>0][var],
+#             df_train[df_train[var]>0]['SalePrice'])
+# plt.savefig('pictures/TotalBsmtSF_SalePrice_plot_positive.png')
+# plt.show()
+
+print(df_train.info())
+df_train = pd.get_dummies(df_train)
