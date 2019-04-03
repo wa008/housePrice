@@ -6,10 +6,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from scipy.stats import norm
-from sklearn.preprocessing import StandardScaler
 from scipy import stats
+from sklearn.preprocessing import StandardScaler
+from sklearn import svm
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from xgboost import XGBRegressor
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -62,17 +66,48 @@ print(xtrain.shape)
 print(xtest.shape)
 print(ytrain.shape)
 print(ytest.shape)
+ytrue = np.array(ytest)
+print("over")
 
-def lin_regre():
-    lr = linear_model.LinearRegression()
-    lr.fit(xtrain,ytrain)
-    print("lr.score =", round(lr.score(xtest, ytest)*100,2))
-    ypred = lr.predict(xtest)
-    print(type(ypred))
-    print(ypred.shape)
-    print()
+def lin_model():
+    lr_model = linear_model.LinearRegression()
+    lr_model.fit(xtrain,ytrain)
+    ypred = lr_model.predict(xtest)
+    ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
+    print("lr_model =", round((1-ss)*100, 2))
+lin_model()
+
+def svm_model():
+    svm_model = svm.SVR()
+    svm_model.fit(xtrain,ytrain)
+    ypred = svm_model.predict(xtest)
+    ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
+    print("svm_model =", round((1-ss)*100, 2))
+svm_model()
+
+def dt_model():
+    dt_model = DecisionTreeRegressor()
+    dt_model.fit(xtrain,ytrain)
+    ypred = dt_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
-    print("ss =", round((1-ss)*100, 2))
+    print("DecisionTree_model =", round((1-ss)*100, 2))
+dt_model()
 
-lin_regre()
+def rf_model():
+    rf_model = RandomForestRegressor()
+    rf_model.fit(xtrain,ytrain)
+    ypred = rf_model.predict(xtest)
+    ytrue = np.array(ytest)
+    ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
+    print("RandomForest_model =", round((1-ss)*100, 2))
+rf_model()
+
+def xgb_model():
+    xgb_model = XGBRegressor()
+    xgb_model.fit(xtrain,ytrain)
+    ypred = xgb_model.predict(xtest)
+    ytrue = np.array(ytest)
+    ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
+    print("xgb_model =", round((1-ss)*100, 2))
+xgb_model()
