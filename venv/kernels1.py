@@ -11,9 +11,16 @@ import warnings
 warnings.filterwarnings('ignore')
 
 df_train = pd.read_csv("input_data/train.csv")
-print(df_train.info())
+# print(df_train.info())
 # print(df_train.columns)
 # sns.distplot(df_train['SalePrice']) # 将SalePrice可视化
+
+# var = 'GarageCars'
+# data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
+# data.plot.scatter(x=var, y='SalePrice')
+# plt.savefig('pictures/GarageCars_YearBuilt.png') # 线性相关
+# plt.show()
+
 
 # var = 'YearBuilt'
 # data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
@@ -87,5 +94,5 @@ df_train.loc[df_train['HasBsmt']==1,'TotalBsmtSF'] = np.log(df_train['TotalBsmtS
 # plt.savefig('pictures/TotalBsmtSF_SalePrice_plot_positive.png')
 # plt.show()
 
-print(df_train.info())
+# print(df_train.info())
 df_train = pd.get_dummies(df_train)
