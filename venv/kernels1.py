@@ -49,11 +49,11 @@ df_train = pd.read_csv("input_data/train.csv")
 # plt.show()
 
 # 4.缺失值处理
-# total = df_train.isnull().sum().sort_values(ascending=False)
-# percent = (df_train.isnull().sum()/1460)\
-#     .sort_values(ascending=False)
-# missing_data = pd.concat([total,percent],axis=1,keys=['Total','Percent'])
-# print(missing_data.head(20))
+total = df_train.isnull().sum().sort_values(ascending=False)
+percent = (df_train.isnull().sum()/1460)\
+    .sort_values(ascending=False)
+missing_data = pd.concat([total,percent],axis=1,keys=['Total','Percent'])
+print(missing_data.head(20))
 #
 # df_train = df_train.drop((missing_data[missing_data['Total']>1]).index,1)
 # df_train = df_train.drop(df_train.loc[df_train['Electrical'].isnull()].index)
