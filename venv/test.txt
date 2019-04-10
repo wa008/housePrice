@@ -1,0 +1,21 @@
+              Total   Percent				  Total   Percent
+PoolQC         1453  0.995205	BsmtExposure     38  0.026027
+MiscFeature    1406  0.963014	BsmtFinType2     38  0.026027
+Alley          1369  0.937671	BsmtFinType1     37  0.025342
+Fence          1179  0.807534	BsmtCond         37  0.025342
+FireplaceQu     690  0.472603	BsmtQual         37  0.025342
+LotFrontage     259  0.177397	MasVnrArea        8  0.005479
+GarageCond       81  0.055479	MasVnrType        8  0.005479
+GarageType       81  0.055479	Electrical        1  0.000685
+GarageYrBlt      81  0.055479	Utilities         0  0.000000
+GarageFinish     81  0.055479	
+GarageQual       81  0.055479
+
+
+
+
+
+
+
+
+

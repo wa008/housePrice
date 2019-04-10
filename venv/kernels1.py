@@ -14,11 +14,14 @@ df_train = pd.read_csv("input_data/train.csv")
 # print(df_train.info())
 # print(df_train.columns)
 # sns.distplot(df_train['SalePrice']) # 将SalePrice可视化
+# plt.title("SalePrice_probability_figure")
+# plt.savefig("pictures/SalePrice_probability_figure.png")
 
-# var = 'GarageCars'
+# var = 'GrLivArea'
 # data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
 # data.plot.scatter(x=var, y='SalePrice')
-# plt.savefig('pictures/GarageCars_YearBuilt.png') # 线性相关
+# plt.title(var + '_SalePrice_scatter_plot') # 线性相关
+# plt.savefig('pictures/' + var + '_SalePrice_scatter_plot.png') # 线性相关
 # plt.show()
 
 
@@ -26,8 +29,9 @@ df_train = pd.read_csv("input_data/train.csv")
 # data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
 # f,ax = plt.subplots(figsize=(16,8))
 # fig = sns.boxplot(x=var,y="SalePrice", data = data)
-# fig.axis(ymin=0,ymax=800000)
-# plt.savefig('pictures/SalePrice_YearBuilt.png') # 线性相关
+# # fig.axis(ymin=0,ymax=800000)
+# plt.title(var + '_SalePrice_scatter_plot')
+# plt.savefig('pictures/' + var + '_SalePrice_scatter_plot.png') # 线性相关
 # plt.show()
 
 # corrmat = df_train.corr()
@@ -77,37 +81,77 @@ df_train = pd.read_csv("input_data/train.csv")
 # print(high_range)
 
 
+
 df_train.sort_values(by='GrLivArea',ascending=False)[:2]
 df_train = df_train.drop(df_train[df_train['Id']==1299].index)
 df_train = df_train.drop(df_train[df_train['Id']==524].index)
-# var = 'TotalBsmtSF'
+
+# var = 'GrLivArea'
 # data = pd.concat([df_train['SalePrice'], df_train[var]], axis = 1)
 # data.plot.scatter(x=var, y='SalePrice',ylim=(0,800000))
 
+# plt.title("GrLivArea_SalePrice_scatter_figure_after_delete_two_data")
+# plt.savefig("pictures/GrLivArea_SalePrice_scatter_figure_agter_two_data.png")
+# plt.show()
+
+# var = 'GrLivArea'
+# sns.distplot(df_train[var])
+# plt.title("GrLivArea_probability_figure")
+# plt.savefig("pictures/GrLivArea_probability_figure.png")
+
+# var = 'TotalBsmtSF'
+# plt.scatter(df_train[df_train[var]>0][var],df_train[df_train[var]>0]['SalePrice'])
+# # plt.scatter(df_train[var],df_train['SalePrice'])
+# plt.title(var + '_SalePrice_scatter_figure_exceptZero')
+# plt.savefig('pictures/' + var + '_SalePrice_scatter_figure_exceptZero.png')
+# plt.show()
 
 df_train['SalePrice'] = np.log(df_train['SalePrice'])
 df_train['GrLivArea'] = np.log(df_train['GrLivArea'])
 
-sns.distplot(df_train['SalePrice'],fit=norm)
-fig = plt.figure()
-res = stats.probplot(df_train['SalePrice'], plot=plt)
-plt.show()
+# var = 'SalePrice'
+# sns.distplot(df_train[var])
+# plt.title(var + "_loged_probability_figure")
+# plt.savefig("pictures/" + var + "_loged_probability_figure.png")
 
-df_train['HasBsmt'] = pd.Series(len(df_train['TotalBsmtSF']),index
-            =df_train.index)
+# var = 'GrLivArea'
+# sns.distplot(df_train[var])
+# plt.title(var + "_loged_probability_figure")
+# plt.savefig("pictures/" + var + "_loged_probability_figure.png")
+
+# sns.distplot(df_train['SalePrice'],fit=norm)
+# fig = plt.figure()
+# res = stats.probplot(df_train['SalePrice'], plot=plt)
+# plt.show()
+
+
+# var = 'TotalBsmtSF'
+# sns.distplot(df_train[var])
+# plt.title(var + "_probability_figure")
+# plt.savefig("pictures/" + var + "_probability_figure.png")
+# plt.show()
+
+df_train['HasBsmt'] = pd.Series(len(df_train['TotalBsmtSF']),index=df_train.index)
 df_train['HasBsmt'] = 0
 df_train.loc[df_train['TotalBsmtSF']>0, 'HasBsmt'] = 1
 df_train.loc[df_train['HasBsmt']==1,'TotalBsmtSF'] = np.log(df_train['TotalBsmtSF'])
 
+# var = 'TotalBsmtSF'
+# sns.distplot(df_train[var])
+# plt.xlim((4,9))
+# plt.title(var + "_loged_probability_exceptZero_figure")
+# plt.savefig("pictures/" + var + "_loged_probability_exceptZero_figure.png")
+# plt.show()
 
 # sns.distplot(df_train[df_train['TotalBsmtSF']>0]['TotalBsmtSF'],fit = norm)
 # fig = plt.figure()
 # res = stats.probplot(df_train[df_train['TotalBsmtSF']>0]['TotalBsmtSF'], plot = plt)
 
-# var = 'TotalBsmtSF'
-# plt.scatter(df_train[df_train[var]>0][var],
-#             df_train[df_train[var]>0]['SalePrice'])
-# plt.savefig('pictures/TotalBsmtSF_SalePrice_plot_positive.png')
+# var = 'GrLivArea'
+# # plt.scatter(df_train[df_train[var]>0][var],df_train[df_train[var]>0]['SalePrice'])
+# plt.scatter(df_train[var],df_train['SalePrice'])
+# plt.title(var + '_SalePrice_scatter_figure_loged')
+# plt.savefig('pictures/' + var + '_SalePrice_scatter_figure_loged.png')
 # plt.show()
 
 # print(df_train.info())
