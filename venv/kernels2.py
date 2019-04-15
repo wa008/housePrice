@@ -75,67 +75,6 @@ ytrue = ytest
 # print(type(xtrain))
 print("data Characteristic engineering over")
 
-def neural_netword():
-    global xtrain
-    global xtest
-    global ytrain
-    global ytest
-    global ytrue
-    print("neural_network begin")
-    # print(type(xtrain))
-    x_train = xtrain.T
-    y_train = ytrain.T.reshape((-1,1))
-    x_test = xtest.T
-    y_test = ytest.T.reshape((-1,1))
-    n, m = x_train.shape
-    # print("x_train.shape = ", x_train.shape)
-    # print("y_train.shape = ", y_train.shape)
-
-    x_place = tf.placeholder(tf.float32, [n, None], name = "x_placeholder")
-    y_place = tf.placeholder(tf.float32, [None, 1], name = "y_placeholder")
-
-    layer_dimension = [n, 400, 500, 100, 200, 50, 1]
-    n_layers = len(layer_dimension)
-    w = [0 for i in range(n_layers)]
-    b = [0 for i in range(n_layers)]
-    a = [0 for i in range(n_layers)]
-    for i in range(1, n_layers):
-        w[i] = tf.Variable(tf.random_normal([layer_dimension[i], layer_dimension[i-1]], stddev = 1, dtype = tf.float32))
-        b[i] = tf.Variable(tf.random_normal([layer_dimension[i], 1], stddev = 1, dtype = tf.float32))
-
-    a[0] = x_place
-    y = 0
-    for i in range(1, n_layers):
-        if i == n_layers - 1:
-            y = tf.matmul(w[i], a[i-1]) + b[i]
-        else:
-            a[i] = tf.nn.relu(tf.matmul(w[i], a[i-1]) + b[i])
-
-    cross_entropy = tf.reduce_mean(tf.square(y_place - y))
-    train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
-
-    batch_size = 1500
-    steps = 200000
-    dataset_size = xtrain.shape[1]
-    # print("dataset_size = ", dataset_size)
-    init = tf.initialize_all_variables()
-    with tf.Session() as sess:
-        sess.run(init)
-        for i in range(steps):
-            start = i * batch_size % dataset_size
-            end = min(dataset_size, start + batch_size)
-            sess.run(train_step, feed_dict = {x_place:x_train[:, start:end], y_place:y_train[start:end, :]})
-            if i % 1000 == 0:
-                pass
-                # loss_now_step = sess.run(cross_entropy, feed_dict = {x_place:x_train, y_place:y_train})
-                # print(i,loss_now_step)
-        ypred = sess.run(y, feed_dict = {x_place:x_test})
-        ypred = ypred.reshape(-1)
-        ss = (ypred - ytrue).dot(ypred - ytrue)/(ypred.shape[0])
-        print("neural_network_square_loss =", ss)
-        ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
-        # print('ss = ', ss)
-        print("neural_netword_model =", round((1-ss)*100, 2))
 
 def lin_model():
     lr_model = linear_model.LinearRegression()
@@ -191,5 +130,66 @@ def xgb_model():
     print("xgb_model =", round((1-ss)*100, 2))
 xgb_model()
 
+def neural_netword():
+    global xtrain
+    global xtest
+    global ytrain
+    global ytest
+    global ytrue
+    print("neural_network begin")
+    # print(type(xtrain))
+    x_train = xtrain.T
+    y_train = ytrain.T.reshape((-1,1))
+    x_test = xtest.T
+    y_test = ytest.T.reshape((-1,1))
+    n, m = x_train.shape
+    # print("x_train.shape = ", x_train.shape)
+    # print("y_train.shape = ", y_train.shape)
+
+    x_place = tf.placeholder(tf.float32, [n, None], name = "x_placeholder")
+    y_place = tf.placeholder(tf.float32, [None, 1], name = "y_placeholder")
+
+    layer_dimension = [n, 400, 500, 100, 200, 50, 1]
+    n_layers = len(layer_dimension)
+    w = [0 for i in range(n_layers)]
+    b = [0 for i in range(n_layers)]
+    a = [0 for i in range(n_layers)]
+    for i in range(1, n_layers):
+        w[i] = tf.Variable(tf.random_normal([layer_dimension[i], layer_dimension[i-1]], stddev = 1, dtype = tf.float32))
+        b[i] = tf.Variable(tf.random_normal([layer_dimension[i], 1], stddev = 1, dtype = tf.float32))
+
+    a[0] = x_place
+    y = 0
+    for i in range(1, n_layers):
+        if i == n_layers - 1:
+            y = tf.matmul(w[i], a[i-1]) + b[i]
+        else:
+            a[i] = tf.nn.relu(tf.matmul(w[i], a[i-1]) + b[i])
+
+    cross_entropy = tf.reduce_mean(tf.square(y_place - y))
+    train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
+
+    batch_size = 1500
+    steps = 200000
+    dataset_size = xtrain.shape[1]
+    # print("dataset_size = ", dataset_size)
+    init = tf.initialize_all_variables()
+    with tf.Session() as sess:
+        sess.run(init)
+        for i in range(steps):
+            start = i * batch_size % dataset_size
+            end = min(dataset_size, start + batch_size)
+            sess.run(train_step, feed_dict = {x_place:x_train[:, start:end], y_place:y_train[start:end, :]})
+            if i % 1000 == 0:
+                pass
+                loss_now_step = sess.run(cross_entropy, feed_dict = {x_place:x_train, y_place:y_train})
+                print('steps, square_loss =',i,loss_now_step)
+        ypred = sess.run(y, feed_dict = {x_place:x_test})
+        ypred = ypred.reshape(-1)
+        ss = (ypred - ytrue).dot(ypred - ytrue)/(ypred.shape[0])
+        print("neural_network_square_loss =", ss)
+        ss = (abs(ypred - ytrue)/ytrue).sum()/(ypred.shape[0])
+        # print('ss = ', ss)
+        print("neural_netword_model =", round((1-ss)*100, 2))
 
 neural_netword()
