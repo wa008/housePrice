@@ -104,11 +104,11 @@ def svm_model_update_parameter_before():
 
 
 def svm_model_update_parameter_after():
-    # kernel_list = ['linear', 'poly', 'rbf', 'sigmoid', 'precomputerd', 'callable']
-    kernel_list = ['rbf']
-    # tol_list= [0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]
-    tol_list = [1e-3]
-    print("tol_list = ", tol_list)
+    kernel_list = ['rbf', 'sigmoid']
+    # kernel_list = ['callable']
+    tol_list= [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
+    # tol_list = [1e-3]
+    # print("tol_list = ", tol_list)
     score_max = -1e20
     kernel_fin = ""
     tol_fin = 0
@@ -130,13 +130,13 @@ def svm_model_update_parameter_after():
                 # print(ytest_score.shape)
                 svm_model.fit(xtrain_fit, ytrain_fit)
                 score_now_now = svm_model.score(xtest_score, ytest_score)/xtest_score.shape[0]
-                print("score_now_now = ", score_now_now)
-                score_now += svm_model.score(xtest_score, ytest_score)/xtest_score.shape[0]
+                score_now += score_now_now
             if score_now > score_max:
                 score_max = score_now
                 kernel_fin = kernel_step
                 tol_fin = tol_step
-            print("now score = ", score_now)
+            print("kernel_step, tol_step, now score = ", kernel_step, tol_step, score_now)
+    print("best parameter = ", kernel_fin, tol_fin)
     svm_model = svm.SVR(kernel=kernel_fin, tol=tol_fin)
     svm_model.fit(xtrain, ytrain)
     ypred = svm_model.predict(xtest)
@@ -148,9 +148,7 @@ def svm_model_update_parameter_after():
 def svm_model():
     svm_model_update_parameter_before()
     svm_model_update_parameter_after()
-
-
-svm_model()
+# svm_model()
 
 
 def dt_model_update_parameter_before():
@@ -159,27 +157,62 @@ def dt_model_update_parameter_before():
     ypred = dt_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\ndt_model_square loss =", ss)
+    print("\ndt_model_update_parameter_before square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
-    print("DecisionTree_model =", round((1 - ss) * 100, 2))
+    print("DecisionTree_model_update_parameter_before =", round((1 - ss) * 100, 2))
 
 
 def dt_model_update_parameter_after():
-    dt_model = DecisionTreeRegressor()
+    min_samples_split_fin = 0
+    min_samples_leaf_fin = 0
+    min_impurity_split_fin = 0
+    score_fin = -1e20
+    min_impurity_split_list = [1e-4, ]
+    for i in range(1,10):
+        min_impurity_split_list.append(min_impurity_split_list[len(min_impurity_split_list)-1]*0.1)
+    # print("min_impurity_split_list = ", min_impurity_split_list)
+    for min_samples_split_now in range(2,8):
+        for min_samples_leaf_now in range(1,min_samples_split_now):
+            for min_impurity_split_now in min_impurity_split_list:
+                score_now = 0.0
+                k = 10
+                for i in range(k): # k折交叉验证
+                    n,m = xtrain.shape
+                    dt_model = DecisionTreeRegressor(min_samples_split=min_samples_split_now,
+                                                    min_samples_leaf=min_samples_leaf_now,min_impurity_split=min_impurity_split_now)
+                    xtrain_fit = np.concatenate((xtrain[:n//k*i, :], xtrain[min(n,n//k*(i+1)):n, :]),axis = 0)
+                    ytrain_fit = np.concatenate((ytrain[:n//k*i], ytrain[min(n,n//k*(i+1),n):]))
+                    xtest_score = xtrain[n//k*i:min(n, n//k*(i+1)), :]
+                    ytest_score = ytrain[n//k*i:min(n,n//k*(i+1))]
+                    # print("\nshape,i,m,n= ",i,m,n)
+                    # print(xtrain_fit.shape)
+                    # print(ytrain_fit.shape)
+                    # print(xtest_score.shape)
+                    # print(ytest_score.shape)
+                    dt_model.fit(xtrain_fit, ytrain_fit)
+                    score_now_now = dt_model.score(xtest_score, ytest_score)/xtest_score.shape[0]
+                    score_now += score_now_now
+                if score_now > score_fin:
+                    score_fin = score_now
+                    min_samples_split_fin = min_samples_split_now
+                    min_samples_leaf_fin = min_samples_leaf_now
+                    min_impurity_split_fin = min_impurity_split_now
+                # print("min_samples_split_now, score_now = ", min_samples_split_now, score_now)
+    print("best parameter min_samples_split, min_samples_leaf, min_impurity_split =",
+          min_samples_split_fin, min_samples_leaf_fin, min_impurity_split_fin)
+    dt_model = DecisionTreeRegressor(min_samples_split=min_samples_split_fin,
+                                     min_samples_leaf=min_samples_leaf_fin,min_impurity_split=min_impurity_split_fin)
     dt_model.fit(xtrain, ytrain)
     ypred = dt_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\ndt_model_square loss =", ss)
+    print("\ndt_model_update_parameter_after square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
-    print("DecisionTree_model =", round((1 - ss) * 100, 2))
-
+    print("DecisionTree_model_update_parameter_after =", round((1 - ss) * 100, 2))
 
 def dt_model():
     dt_model_update_parameter_before()
     dt_model_update_parameter_after()
-
-
 dt_model()
 
 
