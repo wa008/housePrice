@@ -10,5 +10,10 @@ def f1():
     c = np.concatenate((d,e))
     print(c)
     print(type(c))
-f1()
+# f1()
 
+def f2():
+    a = list(i*0.01 for i in range(1,32,5))
+    print(a)
+
+f2()

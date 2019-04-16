@@ -229,23 +229,25 @@ def rf_model_updata_parameter_before():
     ypred = rf_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nrf_model_updata_parameter_before square loss =", ss)
+    print("RandomForest_model_updata_parameter_before square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
-    print("RandomForest_model_updata_parameter_before =", round((1 - ss) * 100, 2))
+    print("RandomForest_model_updata_parameter_before accuracy =", round((1 - ss) * 100, 2))
 
 
 def rf_model_update_parameter_after():
-    n_estimators_list = [i * 20 for i in range(1, 4)]
+    n_estimators_list = [i * 20 for i in range(1, 13, 2)]
     # min_samples_split_list = []
     # min_samples_leaf_list = []
     max_features_list = ['auto', 'log2', 'sqrt', 60, 100, 160, 200]
+    # n_estimators_list = [50]
+    # max_features_list = ['auto']
     n_estimators_fin = 0
     min_samples_leaf_fin = 0
     min_samples_split_fin = 0
     max_features_fin = 0
     score_fin = -1e20
     for n_estimators_now in n_estimators_list:
-        for min_samples_split_now in range(2, 6):
+        for min_samples_split_now in range(2, 7):
             for min_samples_leaf_now in range(1, min_samples_split_now):
                 for max_features_now in max_features_list:
                     score_now = 0.0
@@ -263,28 +265,30 @@ def rf_model_update_parameter_after():
                         # print(ytest_score.shape)e
                         rf_model = RandomForestRegressor(n_estimators=n_estimators_now, min_samples_split=min_samples_split_now,
                                                          min_samples_leaf=min_samples_leaf_now, max_features=max_features_now)
-                        rf_model.fit(xtrain, ytrain)
+                        rf_model.fit(xtrain_fit, ytrain_fit)
                         score_now_now = rf_model.score(xtest_score, ytest_score) / xtest_score.shape[0]
                         score_now += score_now_now
-                    print("score_now = ", score_now)
                     if score_now > score_fin:
                         score_fin = score_now
                         n_estimators_fin = n_estimators_now
                         min_samples_split_fin = min_samples_split_now
                         min_samples_leaf_fin = min_samples_leaf_now
                         max_features_fin = max_features_now
-
+        print("score_now = ", score_now)
+    print("best parameter n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin =",
+          n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin)
     rf_model = RandomForestRegressor(n_estimators=n_estimators_fin, min_samples_split=min_samples_split_fin,
                                     min_samples_leaf=min_samples_leaf_fin, max_features=max_features_fin)
     rf_model.fit(xtrain, ytrain)
     ypred = rf_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nrandomForest_model_update_parameter_after square loss =", ss)
+    print("randomForest_model_update_parameter_after square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
-    print("RandomForest_model_update_parameter_after =", round((1 - ss) * 100, 2))
+    print("RandomForest_model_update_parameter_after accuracy=", round((1 - ss) * 100, 2))
 
 def rf_model():
+    print("")
     rf_model_updata_parameter_before()
     rf_model_update_parameter_after()
 rf_model()
@@ -295,22 +299,33 @@ def xgb_model_update_parameter_before():
     ypred = xgb_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nxgb_model_update_parameter_before square loss =", ss)
+    print("xgb_model_update_parameter_before square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     # print('ss =', ss)
-    print("xgb_model_update_parameter_before =", round((1 - ss) * 100, 2))
+    print("xgb_model_update_parameter_before accuracy=", round((1 - ss) * 100, 2))
 
 def xgb_model_update_parameter_after():
     # booster = ['gbtree', 'gbliner']
-    eta_list = [i*0.01 for i in range(1,34,8)]
+    learning_rate_list = [i*0.01 for i in range(1,34,8)]
     max_depth_list = list(range(2,13,2))
-    gamma_list = [1000]
-    for i in range(7):
+    gamma_list = [10]
+    for i in range(6):
         gamma_list.append(gamma_list[len(gamma_list)-1]*0.01)
     gamma_list.append(0)
-    lambda_list = [0.01, 0.05, 0.1, 0.5, 1, 4, 10, 20]
-    alpha_list = [0.01, 0.05, 0.1, 0.5, 1, 4, 10, 20]
-    def k_cv(eta_now, max_depth_now, gamma_now, lambda_now, alpha_now):
+    lambda_list = [0.01, 0.1, 1, 10, 20]
+    alpha_list = [0.01, 0.1, 1, 10, 20]
+    # learning_rate_list = [0.2]
+    # max_depth_list = [10]
+    # gamma_list = [0]
+    # lambda_list = [1]
+    # alpha_list = [1]
+    learning_rate_fin = 0
+    max_depth_fin = 0
+    gamma_fin = 0
+    lambda_fin = 0
+    alpha_fin = 0
+    score_fin = -1e20
+    def k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now):
         score_now = 0
         k = 10
         for i in range(k):  # k折交叉验证
@@ -323,40 +338,43 @@ def xgb_model_update_parameter_after():
             # print(xtrain_fit.shape)
             # print(ytrain_fit.shape)
             # print(xtest_score.shape)
-            # print(ytest_score.shape)e
-            xgb_model = XGBRegressor(learning_rate=eta_now, max_depth=max_depth_now, gamma=gamma_now,reg_lambda=lambda_now,reg_alpha=alpnow)
-            xgb_model.fit(xtrain, ytrain)
+            # print(ytest_score.shape)
+            xgb_model = XGBRegressor(learning_rate=learning_rate_now, max_depth=max_depth_now, gamma=gamma_now,reg_lambda=lambda_now,reg_alpha=alpha_now)
+            xgb_model.fit(xtrain_fit, ytrain_fit)
             score_now_now = xgb_model.score(xtest_score, ytest_score) / xtest_score.shape[0]
             score_now += score_now_now
         return score_now
-    for eta_now in eta_list:
+    for learning_rate_now in learning_rate_list:
         for max_depth_now in max_depth_list:
             for gamma_now in gamma_list:
                 for lambda_now in lambda_list:
                     for alpha_now in alpha_list:
-                        score_now = k_cv(eta_now, max_depth_now, gamma_now, lambda_now, alpha_now)
-                        print("n_estimators_now, score_now = ",n_estimators_now, score_now)
+                        score_now = k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now)
                         if score_now > score_fin:
                             score_fin = score_now
-                            n_estimators_fin = n_estimators_now
-                            min_samples_split_fin = min_samples_split_now
-                            min_samples_leaf_fin = min_samples_leaf_now
-                            max_features_fin = max_features_now
-    xgb = XGBRegressor()
-    xgb_model = XGBRegressor()
+                            learning_rate_fin = learning_rate_now
+                            max_depth_fin = max_depth_now
+                            gamma_fin = gamma_now
+                            lambda_fin = lambda_now
+                            alpha_fin = alpha_now
+        print("learning_rate_now, max_depth_now, score_now = ",learning_rate_now, max_depth_now, score_now)
+    print('best parameter learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin = ',
+          learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin)
+    xgb_model = XGBRegressor(learning_rate=learning_rate_fin, max_depth=max_depth_fin, gamma=gamma_fin,reg_lambda=lambda_fin,reg_alpha=alpha_fin)
     xgb_model.fit(xtrain, ytrain)
     ypred = xgb_model.predict(xtest)
     ytrue = np.array(ytest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nxgb_model_update_parameter_after square loss =", ss)
+    print("xgb_model_update_parameter_after square_loss = ", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     # print('ss =', ss)
-    print("xgb_model_update_parameter_after =", round((1 - ss) * 100, 2))
+    print("xgb_model_update_parameter_after accuracy = ", round((1 - ss) * 100, 2))
 
 def xgb_model():
+    print("")
     xgb_model_update_parameter_before()
     xgb_model_update_parameter_after()
-# xgb_model()
+xgb_model()
 
 
 def neural_netword():

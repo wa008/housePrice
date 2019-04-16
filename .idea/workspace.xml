@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f3e1832-0919-49bb-98db-605aa0a4e6ec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/venv/kernels3.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kernels3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/test1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +62,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/kernels3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="233" column="42" selection-start-line="233" selection-start-column="42" selection-end-line="233" selection-end-column="42" />
+            <state relative-caret-position="308">
+              <caret line="359" lean-forward="true" selection-start-line="359" selection-end-line="359" />
+              <folding>
+                <element signature="e#44#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3117">
+              <caret line="402" column="35" selection-start-line="402" selection-start-column="35" selection-end-line="402" selection-end-column="35" />
               <folding>
                 <element signature="e#44#63#0" expanded="true" />
               </folding>
@@ -76,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="330">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -111,12 +124,13 @@
         <option value="$PROJECT_DIR$/venv/kernels2.py" />
         <option value="$PROJECT_DIR$/venv/test1.py" />
         <option value="$PROJECT_DIR$/venv/kernels3.py" />
+        <option value="$PROJECT_DIR$/venv/kernels4.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="759" />
-    <option name="y" value="447" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -163,28 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kernels3">
-    <configuration name="hello1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="housePrice" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/hello1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.kernels4">
     <configuration name="kernels1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="housePrice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -248,6 +241,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="kernels4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="housePrice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/kernels4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="housePrice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kernels4" />
         <item itemvalue="Python.kernels3" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python.kernels2" />
         <item itemvalue="Python.kernels1" />
-        <item itemvalue="Python.hello1" />
       </list>
     </recent_temporary>
   </component>
@@ -294,14 +308,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1459431" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.113804005" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35900217" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28524947" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -385,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/test1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="330">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -395,8 +408,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/kernels3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="233" column="42" selection-start-line="233" selection-start-column="42" selection-end-line="233" selection-end-column="42" />
+        <state relative-caret-position="308">
+          <caret line="359" lean-forward="true" selection-start-line="359" selection-end-line="359" />
+          <folding>
+            <element signature="e#44#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3117">
+          <caret line="402" column="35" selection-start-line="402" selection-start-column="35" selection-end-line="402" selection-end-column="35" />
           <folding>
             <element signature="e#44#63#0" expanded="true" />
           </folding>

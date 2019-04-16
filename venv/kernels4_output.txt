@@ -1,0 +1,21 @@
+C:\file\anaconda\envs\tensorflow_gpu\python.exe C:/Users/hzp/Desktop/housePrice/venv/kernels4.py
+ytrain.shape = (1238,)
+data Characteristic engineering over
+
+lr_model_square loss = 1.55932763229e+25
+lr_model = -3.16840922785e+12
+
+RandomForest_model_updata_parameter_before square_loss = 0.0155267855841
+RandomForest_model_updata_parameter_before accuracy = 99.25
+score_now =  0.0704838343797
+score_now =  0.0708935461607
+score_now =  0.0709428879117
+score_now =  0.070883154816
+score_now =  0.0710268713429
+score_now =  0.0709380285192
+best parameter n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin = 140 3 1 60
+randomForest_model_update_parameter_after square_loss = 0.0130883211285
+RandomForest_model_update_parameter_after accuracy= 99.31
+
+xgb_model_update_parameter_before square_loss = 0.0114787743776
+xgb_model_update_parameter_before accuracy= 99.32
