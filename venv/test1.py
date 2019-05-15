@@ -1,7 +1,7 @@
 import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 import numpy as np
-
+import time
 def f1():
     a = [[1,2],[2,3]]
     b = [[4,5],[5,6]]
@@ -16,4 +16,26 @@ def f2():
     a = list(i*0.01 for i in range(1,32,5))
     print(a)
 
-f2()
+# f2()
+
+def f3():
+    t = []
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    t.append(time.clock())
+    time.sleep(1)
+    for i in range(len(t)-1):
+        print(t[i+1]-t[i])
+
+
+f3()

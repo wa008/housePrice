@@ -16,6 +16,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBRegressor
 import tensorflow as tf
+import time
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -90,7 +91,7 @@ def lin_model():
     print("lr_model =", round((1 - ss) * 100, 2))
 
 
-lin_model()
+# lin_model()
 
 
 def svm_model_update_parameter_before():
@@ -135,8 +136,8 @@ def svm_model_update_parameter_after():
                 score_max = score_now
                 kernel_fin = kernel_step
                 tol_fin = tol_step
-            print("kernel_step, tol_step, now score = ", kernel_step, tol_step, score_now)
-    print("best parameter = ", kernel_fin, tol_fin)
+            # print("kernel_step, tol_step, now score = ", kernel_step, tol_step, score_now)
+    # print("best parameter = ", kernel_fin, tol_fin)
     svm_model = svm.SVR(kernel=kernel_fin, tol=tol_fin)
     svm_model.fit(xtrain, ytrain)
     ypred = svm_model.predict(xtest)
@@ -202,8 +203,8 @@ def dt_model_update_parameter_after():
                     min_samples_leaf_fin = min_samples_leaf_now
                     min_impurity_split_fin = min_impurity_split_now
                 # print("min_samples_split_now, score_now = ", min_samples_split_now, score_now)
-    print("best parameter min_samples_split, min_samples_leaf, min_impurity_split =",
-          min_samples_split_fin, min_samples_leaf_fin, min_impurity_split_fin)
+    # print("best parameter min_samples_split, min_samples_leaf, min_impurity_split =",
+    #       min_samples_split_fin, min_samples_leaf_fin, min_impurity_split_fin)
     dt_model = DecisionTreeRegressor(min_samples_split=min_samples_split_fin,
                                      min_samples_leaf=min_samples_leaf_fin, min_impurity_split=min_impurity_split_fin)
     dt_model.fit(xtrain, ytrain)
@@ -274,9 +275,9 @@ def rf_model_update_parameter_after():
                         min_samples_split_fin = min_samples_split_now
                         min_samples_leaf_fin = min_samples_leaf_now
                         max_features_fin = max_features_now
-        print("score_now = ", score_now)
-    print("best parameter n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin =",
-          n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin)
+        # print("score_now = ", score_now)
+    # print("best parameter n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin =",
+    #       n_estimators_fin, min_samples_split_fin, min_samples_leaf_fin, max_features_fin)
     rf_model = RandomForestRegressor(n_estimators=n_estimators_fin, min_samples_split=min_samples_split_fin,
                                     min_samples_leaf=min_samples_leaf_fin, max_features=max_features_fin)
     rf_model.fit(xtrain, ytrain)
@@ -291,7 +292,7 @@ def rf_model():
     print("")
     rf_model_updata_parameter_before()
     rf_model_update_parameter_after()
-rf_model()
+# rf_model()
 
 def xgb_model_update_parameter_before():
     xgb_model = XGBRegressor()
@@ -306,14 +307,17 @@ def xgb_model_update_parameter_before():
 
 def xgb_model_update_parameter_after():
     # booster = ['gbtree', 'gbliner']
-    learning_rate_list = [i*0.01 for i in range(1,34,8)]
-    max_depth_list = list(range(2,13,2))
-    gamma_list = [10]
-    for i in range(6):
-        gamma_list.append(gamma_list[len(gamma_list)-1]*0.01)
+    learning_rate_list = [i*0.01 for i in range(1,34,3)]
+    max_depth_list = list(range(1,8,3))
+    gamma_list = [1]
+    for i in range(4):
+        gamma_list.append(gamma_list[len(gamma_list)-1]*0.1)
     gamma_list.append(0)
-    lambda_list = [0.01, 0.1, 1, 10, 20]
-    alpha_list = [0.01, 0.1, 1, 10, 20]
+    lambda_list = [0.01, 0.1, 0.15, 1]
+    alpha_list = [0.01, 0.1, 0.15, 1]
+    min_child_weight_list = [0.1, 0.5, 1, 5]
+    steps = len(learning_rate_list)*len(max_depth_list)*len(gamma_list)*len(lambda_list)*len(alpha_list)*len(min_child_weight_list)
+    # print("steps = ", steps)
     # learning_rate_list = [0.2]
     # max_depth_list = [10]
     # gamma_list = [0]
@@ -325,7 +329,8 @@ def xgb_model_update_parameter_after():
     lambda_fin = 0
     alpha_fin = 0
     score_fin = -1e20
-    def k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now):
+    time_prin = time.clock()
+    def k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now, min_child_weight_now):
         score_now = 0
         k = 10
         for i in range(k):  # k折交叉验证
@@ -339,7 +344,8 @@ def xgb_model_update_parameter_after():
             # print(ytrain_fit.shape)
             # print(xtest_score.shape)
             # print(ytest_score.shape)
-            xgb_model = XGBRegressor(learning_rate=learning_rate_now, max_depth=max_depth_now, gamma=gamma_now,reg_lambda=lambda_now,reg_alpha=alpha_now)
+            xgb_model = XGBRegressor(learning_rate=learning_rate_now, max_depth=max_depth_now, gamma=gamma_now,reg_lambda=lambda_now,
+                                     reg_alpha=alpha_now, min_child_weight=min_child_weight_now)
             xgb_model.fit(xtrain_fit, ytrain_fit)
             score_now_now = xgb_model.score(xtest_score, ytest_score) / xtest_score.shape[0]
             score_now += score_now_now
@@ -349,17 +355,25 @@ def xgb_model_update_parameter_after():
             for gamma_now in gamma_list:
                 for lambda_now in lambda_list:
                     for alpha_now in alpha_list:
-                        score_now = k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now)
-                        if score_now > score_fin:
-                            score_fin = score_now
-                            learning_rate_fin = learning_rate_now
-                            max_depth_fin = max_depth_now
-                            gamma_fin = gamma_now
-                            lambda_fin = lambda_now
-                            alpha_fin = alpha_now
-        print("learning_rate_now, max_depth_now, score_now = ",learning_rate_now, max_depth_now, score_now)
-    print('best parameter learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin = ',
-          learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin)
+                        for min_child_weight_now in min_child_weight_list:
+                            time_now = time.clock()
+                            score_now = k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now, min_child_weight_now)
+                            if score_now > score_fin:
+                                score_fin = score_now
+                                learning_rate_fin = learning_rate_now
+                                max_depth_fin = max_depth_now
+                                gamma_fin = gamma_now
+                                lambda_fin = lambda_now
+                                alpha_fin = alpha_now
+                            if int(time.clock() - time_prin) > 60:
+                                pass
+                                print("one time = ", time.clock() - time_now)
+                                # print("all time = ", (time.clock() - time_now)*steps)
+                                print("all time = ", (time.clock() - time_now)*steps/60)
+                                time_prin = time.clock()
+        # print("learning_rate_now, max_depth_now, score_now = ",learning_rate_now, max_depth_now, score_now)
+    # print('best parameter learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin = ',
+    #       learning_rate_fin, max_depth_fin, gamma_fin, lambda_fin, alpha_fin)
     xgb_model = XGBRegressor(learning_rate=learning_rate_fin, max_depth=max_depth_fin, gamma=gamma_fin,reg_lambda=lambda_fin,reg_alpha=alpha_fin)
     xgb_model.fit(xtrain, ytrain)
     ypred = xgb_model.predict(xtest)
@@ -369,8 +383,10 @@ def xgb_model_update_parameter_after():
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     # print('ss =', ss)
     print("xgb_model_update_parameter_after accuracy = ", round((1 - ss) * 100, 2))
-
+# 最小结点权重
 def xgb_model():
+    ou = time.asctime(time.localtime(time.time()))
+    print(ou)
     print("")
     xgb_model_update_parameter_before()
     xgb_model_update_parameter_after()
@@ -383,7 +399,7 @@ def neural_netword():
     global ytrain
     global ytest
     global ytrue
-    print("neural_network begin")
+    # print("neural_network begin")
     # print(type(xtrain))
     x_train = xtrain.T
     y_train = ytrain.T.reshape((-1, 1))
@@ -430,7 +446,7 @@ def neural_netword():
             if i % 1000 == 0:
                 pass
                 loss_now_step = sess.run(cross_entropy, feed_dict={x_place: x_train, y_place: y_train})
-                print('steps, square_loss =', i, loss_now_step)
+                # print('steps, square_loss =', i, loss_now_step)
         ypred = sess.run(y, feed_dict={x_place: x_test})
         ypred = ypred.reshape(-1)
         ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
@@ -439,4 +455,4 @@ def neural_netword():
         # print('ss = ', ss)
         print("neural_netword_model =", round((1 - ss) * 100, 2))
 
-# neural_netword()
+neural_netword()
