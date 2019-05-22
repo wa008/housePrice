@@ -1,31 +1,7 @@
-C:\file\anaconda\envs\tensorflow_gpu\python.exe C:/Users/hzp/Desktop/housePrice/venv/kernels4.py
-ytrain.shape = (1238,)
-data Characteristic engineering over
 
-lr_model_square loss = 1.98716673591e+25
-lr_model = -4.64485860227e+12
 
-svm_model_update_parameter_before square loss = 0.151906784461
-svm_model_update_parameter_before accuracy = 97.42
-svm_model_update_parameter_after_square loss = 0.151906784461
-svm_model_update_parameter_after accuracy = 97.42
 
-dt_model_update_parameter_before square loss = 0.0400267009475
-DecisionTree_model_update_parameter_before = 98.81
-dt_model_update_parameter_after square loss = 0.0326448069579
-DecisionTree_model_update_parameter_after = 98.88
-
-RandomForest_model_updata_parameter_before square_loss = 0.019109581873
-RandomForest_model_updata_parameter_before accuracy = 99.23
-randomForest_model_update_parameter_after square_loss = 0.0132963226324
-RandomForest_model_update_parameter_after accuracy= 99.34
-
-xgb_model_update_parameter_before square_loss = 0.0134657895707
-xgb_model_update_parameter_before accuracy= 99.31
-xgb_model_update_parameter_after square_loss =  0.0123719881233
-xgb_model_update_parameter_after accuracy =  99.36
-
-neural_network_square_loss = 1.51673230398e+14
-neural_netword_model = -30706712.74
-
-Process finished with exit code 0
+xgb_model_update_parameter_before square_loss = 0.0159346481842
+xgb_model_update_parameter_before accuracy= 99.21
+xgb_model_update_parameter_after square_loss =  0.0162694440787
+xgb_model_update_parameter_after accuracy =  99.23

@@ -67,8 +67,8 @@ ydata = df_train['SalePrice']
 
 df_train = StandardScaler().fit(df_train)
 xtrain, xtest, ytrain, ytest = train_test_split(xdata, ydata, test_size=0.15)
-# print('xtrain.shape = ', xtrain.shape)
-# print('xtest.shape =', xtest.shape)
+print('xtrain.shape = ', xtrain.shape)
+print('xtest.shape =', xtest.shape)
 # print('ytrain.shape =', ytrain.shape)
 # print( 'ytest =', ytest.shape)
 xtrain = np.array(xtrain)
@@ -105,7 +105,8 @@ def svm_model_update_parameter_before():
 
 
 def svm_model_update_parameter_after():
-    kernel_list = ['rbf', 'sigmoid']
+    # kernel_list = ['rbf', 'sigmoid']
+    kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
     # kernel_list = ['callable']
     tol_list = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
     # tol_list = [1e-3]
@@ -119,6 +120,7 @@ def svm_model_update_parameter_after():
             k = 10
             for i in range(k):  # k折交叉验证
                 n, m = xtrain.shape
+                print("kernel, tol = ", kernel_step, tol_step)
                 svm_model = svm.SVR(kernel=kernel_step, tol=tol_step)
                 xtrain_fit = np.concatenate((xtrain[:n // k * i, :], xtrain[min(n, n // k * (i + 1)):n, :]), axis=0)
                 ytrain_fit = np.concatenate((ytrain[:n // k * i], ytrain[min(n, n // k * (i + 1), n):]))
@@ -332,7 +334,7 @@ def xgb_model_update_parameter_after():
     time_prin = time.clock()
     def k_cv(learning_rate_now, max_depth_now, gamma_now, lambda_now, alpha_now, min_child_weight_now):
         score_now = 0
-        k = 10
+        k = 6
         for i in range(k):  # k折交叉验证
             n, m = xtrain.shape
             xtrain_fit = np.concatenate((xtrain[:n // k * i, :], xtrain[min(n, n // k * (i + 1)):n, :]), axis=0)
@@ -390,7 +392,7 @@ def xgb_model():
     print("")
     xgb_model_update_parameter_before()
     xgb_model_update_parameter_after()
-xgb_model()
+# xgb_model()
 
 
 def neural_netword():
@@ -455,4 +457,11 @@ def neural_netword():
         # print('ss = ', ss)
         print("neural_netword_model =", round((1 - ss) * 100, 2))
 
-neural_netword()
+# neural_netword()
+if __name__ == '__main__':
+    lin_model()
+    svm_model()
+    dt_model()
+    rf_model()
+    # xgb_model()
+    neural_netword()
