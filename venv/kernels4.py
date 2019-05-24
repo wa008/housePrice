@@ -82,14 +82,13 @@ print("data Characteristic engineering over")
 
 
 def lin_model():
-    lr_model = linear_model.LinearRegression(normalize=True)  # 数据归一化
+    lr_model = linear_model.LinearRegression()  # 数据归一化
     lr_model.fit(xtrain, ytrain)
     ypred = lr_model.predict(xtest)
     ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
     print("\nlr_model_square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("lr_model =", round((1 - ss) * 100, 2))
-
 
 # lin_model()
 
@@ -108,7 +107,7 @@ def svm_model_update_parameter_after():
     # kernel_list = ['rbf', 'sigmoid']
     kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
     # kernel_list = ['callable']
-    tol_list = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
+    tol_list = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
     # tol_list = [1e-3]
     # print("tol_list = ", tol_list)
     score_max = -1e20
@@ -139,7 +138,7 @@ def svm_model_update_parameter_after():
                 kernel_fin = kernel_step
                 tol_fin = tol_step
             # print("kernel_step, tol_step, now score = ", kernel_step, tol_step, score_now)
-    # print("best parameter = ", kernel_fin, tol_fin)
+    print("best parameter = ", kernel_fin, tol_fin)
     svm_model = svm.SVR(kernel=kernel_fin, tol=tol_fin)
     svm_model.fit(xtrain, ytrain)
     ypred = svm_model.predict(xtest)
@@ -459,9 +458,9 @@ def neural_netword():
 
 # neural_netword()
 if __name__ == '__main__':
-    lin_model()
-    svm_model()
-    dt_model()
-    rf_model()
+    # lin_model()
+    # svm_model()
+    # dt_model()
+    # rf_model()
     # xgb_model()
     neural_netword()

@@ -1,7 +1,24 @@
+lr_model_square loss = 0.0131393897234
+lr_model = 99.33
+
+svm_model_update_parameter_before square loss = 0.153833943501
+svm_model_update_parameter_before accuracy = 97.37
+svm_model_update_parameter_after_square loss = 0.153833943501
+svm_model_update_parameter_after accuracy = 97.37
 
 
+dt_model_update_parameter_before square loss = 0.0424767369973
+DecisionTree_model_update_parameter_before = 98.76
+dt_model_update_parameter_after square loss = 0.028268322284
+DecisionTree_model_update_parameter_after = 98.92
+
+RandomForest_model_updata_parameter_before square_loss = 0.0207862269268
+RandomForest_model_updata_parameter_before accuracy = 99.15
+99.23
 
 xgb_model_update_parameter_before square_loss = 0.0159346481842
 xgb_model_update_parameter_before accuracy= 99.21
 xgb_model_update_parameter_after square_loss =  0.0162694440787
 xgb_model_update_parameter_after accuracy =  99.23
+
+
