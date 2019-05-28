@@ -458,9 +458,9 @@ def neural_netword():
 
 # neural_netword()
 if __name__ == '__main__':
-    # lin_model()
+    lin_model()
     # svm_model()
     # dt_model()
     # rf_model()
     # xgb_model()
-    neural_netword()
+    # neural_netword()
