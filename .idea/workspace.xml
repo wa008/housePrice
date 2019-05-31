@@ -5,7 +5,30 @@
     <bookmark url="file://$PROJECT_DIR$/venv/test1.py" line="13" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3e1832-0919-49bb-98db-605aa0a4e6ec" name="Default Changelist" comment="" />
+    <list default="true" id="2f3e1832-0919-49bb-98db-605aa0a4e6ec" name="Default Changelist" comment="k">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GarageCars_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GarageCars_SalePrice_scatter_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLIvArea_SalePrice_scatter_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLIvArea_SalePrice_scatter_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_agter_two_data.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_agter_two_data.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_loged.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability_loged.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/OverallQual_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/OverallQual_SalePrice_scatter_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_OverallQual.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_OverallQual.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_probability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_probability_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_probability_loged.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_exceptZero.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_exceptZero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_loged_exceptZero.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_loged_exceptZero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_loged_probability_exceptZero_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_loged_probability_exceptZero_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/YearBuilt_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/YearBuilt_SalePrice_scatter_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/correlation_matrix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pictures/zoomed_correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/zoomed_correlation_matrix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/visual1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/visual1.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/kernels1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1034">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            <state>
+              <folding>
+                <element signature="e#59#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/visual1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="169" column="58" selection-start-line="169" selection-start-column="58" selection-end-line="169" selection-end-column="58" />
               <folding>
                 <element signature="e#59#78#0" expanded="true" />
               </folding>
@@ -104,6 +138,7 @@
         <option value="$PROJECT_DIR$/venv/test1.py" />
         <option value="$PROJECT_DIR$/venv/result1.py" />
         <option value="$PROJECT_DIR$/venv/kernels4.py" />
+        <option value="$PROJECT_DIR$/venv/visual1.py" />
       </list>
     </option>
   </component>
@@ -120,7 +155,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +171,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -155,7 +190,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kernels4">
+  <component name="RunManager" selected="Python.visual1">
     <configuration name="deeplearning1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="housePrice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,27 +204,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/deeplearning1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kernels2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="housePrice" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/kernels2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -282,13 +296,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="visual1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="housePrice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/visual1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.visual1" />
         <item itemvalue="Python.result1" />
         <item itemvalue="Python.deeplearning1" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python.kernels3" />
-        <item itemvalue="Python.kernels2" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +344,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.113804005" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.113804005" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -422,8 +457,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/kernels1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        <state>
+          <folding>
+            <element signature="e#59#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/visual1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="169" column="58" selection-start-line="169" selection-start-column="58" selection-end-line="169" selection-end-column="58" />
           <folding>
             <element signature="e#59#78#0" expanded="true" />
           </folding>
