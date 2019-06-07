@@ -7,27 +7,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2f3e1832-0919-49bb-98db-605aa0a4e6ec" name="Default Changelist" comment="k">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GarageCars_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GarageCars_SalePrice_scatter_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLIvArea_SalePrice_scatter_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLIvArea_SalePrice_scatter_figure.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_agter_two_data.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_agter_two_data.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_SalePrice_scatter_figure_loged.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/GrLivArea_probability_loged.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/OverallQual_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/OverallQual_SalePrice_scatter_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_OverallQual.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_OverallQual.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_probability.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/SalePrice_probability_loged.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/SalePrice_probability_loged.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_exceptZero.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_exceptZero.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_loged_exceptZero.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_figure_loged_exceptZero.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_SalePrice_scatter_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_loged_probability_exceptZero_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_loged_probability_exceptZero_figure.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/TotalBsmtSF_probability_figure.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/YearBuilt_SalePrice_scatter_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/YearBuilt_SalePrice_scatter_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/correlation_matrix.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/zoomed_correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/zoomed_correlation_matrix.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/visual1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/visual1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/kernels4.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kernels4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/kernels4_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kernels4_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/result1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/result1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/test1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +23,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/hello1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-52">
+            <state relative-caret-position="110">
               <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
+              <folding>
+                <element signature="e#44#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,14 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/visual1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="169" column="58" selection-start-line="169" selection-start-column="58" selection-end-line="169" selection-end-column="58" />
-              <folding>
-                <element signature="e#59#78#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="491">
+              <caret line="158" column="18" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -72,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/result1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="154">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -81,7 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/hello2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2186">
+            <state relative-caret-position="418">
+              <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
               <folding>
                 <element signature="e#9#28#0" expanded="true" />
               </folding>
@@ -92,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/deal_data1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1988">
-              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="198">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -101,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
-              <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+            <state relative-caret-position="506">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -135,15 +128,15 @@
         <option value="$PROJECT_DIR$/venv/kernels1.py" />
         <option value="$PROJECT_DIR$/venv/kernels2.py" />
         <option value="$PROJECT_DIR$/venv/kernels3.py" />
-        <option value="$PROJECT_DIR$/venv/test1.py" />
-        <option value="$PROJECT_DIR$/venv/result1.py" />
-        <option value="$PROJECT_DIR$/venv/kernels4.py" />
         <option value="$PROJECT_DIR$/venv/visual1.py" />
+        <option value="$PROJECT_DIR$/venv/result1.py" />
+        <option value="$PROJECT_DIR$/venv/test1.py" />
+        <option value="$PROJECT_DIR$/venv/kernels4.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="796" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -155,6 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,7 +165,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -190,7 +183,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.visual1">
+  <component name="RunManager" selected="Python.kernels4">
     <configuration name="deeplearning1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="housePrice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -319,10 +312,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test1" />
         <item itemvalue="Python.visual1" />
         <item itemvalue="Python.result1" />
         <item itemvalue="Python.deeplearning1" />
-        <item itemvalue="Python.test1" />
         <item itemvalue="Python.kernels3" />
       </list>
     </recent_temporary>
@@ -349,7 +342,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36550975" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45227766" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -378,50 +371,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/deal_data1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1988">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/result1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/hello2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2186">
-          <folding>
-            <element signature="e#9#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/deeplearning1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1686">
           <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/hello1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -445,13 +398,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+    <entry file="file://$PROJECT_DIR$/venv/hello1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4084">
-          <caret line="444" column="54" selection-start-line="444" selection-start-column="54" selection-end-line="444" selection-end-column="54" />
-          <folding>
-            <element signature="e#44#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -464,12 +414,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/hello2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+          <folding>
+            <element signature="e#9#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/deal_data1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/result1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/visual1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="169" column="58" selection-start-line="169" selection-start-column="58" selection-end-line="169" selection-end-column="58" />
+        <state relative-caret-position="491">
+          <caret line="158" column="18" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
-            <element signature="e#59#78#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="e#44#63#0" expanded="true" />
           </folding>
         </state>
       </provider>

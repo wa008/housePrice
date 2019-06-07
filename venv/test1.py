@@ -37,5 +37,13 @@ def f3():
     for i in range(len(t)-1):
         print(t[i+1]-t[i])
 
+# f3()
 
-f3()
+def f4():
+    x = np.array([1,2,3])
+    y = np.array([3,2,1])
+    print(10 - x)
+    print(max(x,y))
+
+if __name__ == '__main__':
+    f4()

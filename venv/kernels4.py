@@ -80,15 +80,24 @@ ytrue = ytest
 print("ytrain.shape =", ytrain.shape)
 print("data Characteristic engineering over")
 
+def output_accuracy(ypred):
+    ypred = np.array(ypred)
+    mx = [0 for i in range(ypred.shape[0])]
+    for i in range(ypred.shape[0]):
+        mx[i] = max(ypred[i], ytest[i])
+    mx = np.array(mx)
+    ans = (1 - abs(ypred - ytest)/mx).sum() / ypred.shape[0] * 100
+    return ans
 
 def lin_model():
     lr_model = linear_model.LinearRegression()  # 数据归一化
     lr_model.fit(xtrain, ytrain)
     ypred = lr_model.predict(xtest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nlr_model_square loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("\nlr_model_square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("lr_model =", round((1 - ss) * 100, 2))
+    print("lr_model =", output_accuracy(ypred))
 
 # lin_model()
 
@@ -97,10 +106,11 @@ def svm_model_update_parameter_before():
     svm_model = svm.SVR()
     svm_model.fit(xtrain, ytrain)
     ypred = svm_model.predict(xtest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nsvm_model_update_parameter_before square loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("\nsvm_model_update_parameter_before square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("svm_model_update_parameter_before accuracy =", round((1 - ss) * 100, 2))
+    print("svm_model_update_parameter_before accuracy =", output_accuracy(ypred))
 
 
 def svm_model_update_parameter_after():
@@ -142,15 +152,17 @@ def svm_model_update_parameter_after():
     svm_model = svm.SVR(kernel=kernel_fin, tol=tol_fin)
     svm_model.fit(xtrain, ytrain)
     ypred = svm_model.predict(xtest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\nsvm_model_update_parameter_after_square loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("\nsvm_model_update_parameter_after_square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("svm_model_update_parameter_after accuracy =", round((1 - ss) * 100, 2))
+    print("svm_model_update_parameter_after accuracy =", output_accuracy(ypred))
 
 
 def svm_model():
     svm_model_update_parameter_before()
     svm_model_update_parameter_after()
+    print("")
 
 
 # svm_model()
@@ -161,10 +173,11 @@ def dt_model_update_parameter_before():
     dt_model.fit(xtrain, ytrain)
     ypred = dt_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\ndt_model_update_parameter_before square loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("\ndt_model_update_parameter_before square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("DecisionTree_model_update_parameter_before =", round((1 - ss) * 100, 2))
+    print("DecisionTree_model_update_parameter_before =", output_accuracy(ypred))
 
 
 def dt_model_update_parameter_after():
@@ -211,15 +224,17 @@ def dt_model_update_parameter_after():
     dt_model.fit(xtrain, ytrain)
     ypred = dt_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("\ndt_model_update_parameter_after square loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("\ndt_model_update_parameter_after square loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("DecisionTree_model_update_parameter_after =", round((1 - ss) * 100, 2))
+    print("DecisionTree_model_update_parameter_after =", output_accuracy(ypred))
 
 
 def dt_model():
     dt_model_update_parameter_before()
     dt_model_update_parameter_after()
+    print("")
 
 
 # dt_model()
@@ -230,10 +245,11 @@ def rf_model_updata_parameter_before():
     rf_model.fit(xtrain, ytrain)
     ypred = rf_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("RandomForest_model_updata_parameter_before square_loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("RandomForest_model_updata_parameter_before square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("RandomForest_model_updata_parameter_before accuracy =", round((1 - ss) * 100, 2))
+    print("RandomForest_model_updata_parameter_before accuracy =", output_accuracy(ypred))
 
 
 def rf_model_update_parameter_after():
@@ -284,15 +300,16 @@ def rf_model_update_parameter_after():
     rf_model.fit(xtrain, ytrain)
     ypred = rf_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("randomForest_model_update_parameter_after square_loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("randomForest_model_update_parameter_after square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     print("RandomForest_model_update_parameter_after accuracy=", round((1 - ss) * 100, 2))
+    print("RandomForest_model_update_parameter_after accuracy=", output_accuracy(ypred))
 
 def rf_model():
-    print("")
     rf_model_updata_parameter_before()
     rf_model_update_parameter_after()
+    print("")
 # rf_model()
 
 def xgb_model_update_parameter_before():
@@ -300,11 +317,12 @@ def xgb_model_update_parameter_before():
     xgb_model.fit(xtrain, ytrain)
     ypred = xgb_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("xgb_model_update_parameter_before square_loss =", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("xgb_model_update_parameter_before square_loss =", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     # print('ss =', ss)
     print("xgb_model_update_parameter_before accuracy=", round((1 - ss) * 100, 2))
+    print("xgb_model_update_parameter_before accuracy=", output_accuracy(ypred))
 
 def xgb_model_update_parameter_after():
     # booster = ['gbtree', 'gbliner']
@@ -379,11 +397,12 @@ def xgb_model_update_parameter_after():
     xgb_model.fit(xtrain, ytrain)
     ypred = xgb_model.predict(xtest)
     ytrue = np.array(ytest)
-    ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-    print("xgb_model_update_parameter_after square_loss = ", ss)
+    # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+    # print("xgb_model_update_parameter_after square_loss = ", ss)
     ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
     # print('ss =', ss)
     print("xgb_model_update_parameter_after accuracy = ", round((1 - ss) * 100, 2))
+    print("xgb_model_update_parameter_after accuracy = ", output_accuracy(ypred))
 # 最小结点权重
 def xgb_model():
     ou = time.asctime(time.localtime(time.time()))
@@ -391,6 +410,7 @@ def xgb_model():
     print("")
     xgb_model_update_parameter_before()
     xgb_model_update_parameter_after()
+    print('')
 # xgb_model()
 
 
@@ -434,33 +454,50 @@ def neural_netword():
     train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
 
     batch_size = 1500
-    steps = 20000
+    steps = 2000000
     dataset_size = xtrain.shape[1]
     # print("dataset_size = ", dataset_size)
     init = tf.initialize_all_variables()
+    time_now = time.time()
+    time_pre = time.time()
     with tf.Session() as sess:
         sess.run(init)
         for i in range(steps):
-            start = i * batch_size % dataset_size
-            end = min(dataset_size, start + batch_size)
-            sess.run(train_step, feed_dict={x_place: x_train[:, start:end], y_place: y_train[start:end, :]})
+            # start = i * batch_size % dataset_size
+            # end = min(dataset_size, start + batch_size)
+            # sess.run(train_step, feed_dict={x_place: x_train[:, start:end], y_place: y_train[start:end, :]})
+            sess.run(train_step, feed_dict={x_place: x_train, y_place: y_train})
             if i % 1000 == 0:
                 pass
                 loss_now_step = sess.run(cross_entropy, feed_dict={x_place: x_train, y_place: y_train})
-                # print('steps, square_loss =', i, loss_now_step)
+                print('steps, square_loss =', i, loss_now_step)
+                ypred = sess.run(y, feed_dict={x_place: x_test})
+                ypred = ypred.reshape(-1)
+                # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+                # print("neural_network_square_loss =", ss)
+                ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
+                # print('ss = ', ss)
+                print("neural_netword_model =", round((1 - ss) * 100, 2))
+                print("neural_netword_model =", output_accuracy(ypred))
+                print('time = ',time.time() - time_now)
+                print('total_time = ', (time.time() - time_pre)*steps/1000)
+                print('\n\n')
+                time_pre = time.time()
         ypred = sess.run(y, feed_dict={x_place: x_test})
         ypred = ypred.reshape(-1)
-        ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
-        print("neural_network_square_loss =", ss)
+        # ss = (ypred - ytrue).dot(ypred - ytrue) / (ypred.shape[0])
+        # print("neural_network_square_loss =", ss)
         ss = (abs(ypred - ytrue) / ytrue).sum() / (ypred.shape[0])
         # print('ss = ', ss)
         print("neural_netword_model =", round((1 - ss) * 100, 2))
+        print("neural_netword_model =", output_accuracy(ypred))
 
 # neural_netword()
 if __name__ == '__main__':
     lin_model()
-    # svm_model()
-    # dt_model()
-    # rf_model()
-    # xgb_model()
-    # neural_netword()
+    svm_model()
+    dt_model()
+    rf_model()
+    xgb_model()
+    neural_netword()
+

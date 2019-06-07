@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif']=['SimHei']#设置字体以便支持中文
 import numpy as np
 
-result_before = [95,97.37,98.76,99.15,99.21,87]
-result_after = [95,97.37,98.92,99.23,99.23,87]
+result_before = [95,97.37,98.76,99.15,99.21,97.31]
+result_after = [95,97.37,98.92,99.23,99.23,97.31]
 
 x=np.arange(len(result_before))#柱状图在横坐标上的位置
 
