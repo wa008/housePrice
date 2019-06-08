@@ -433,7 +433,7 @@ def neural_netword():
     x_place = tf.placeholder(tf.float32, [n, None], name="x_placeholder")
     y_place = tf.placeholder(tf.float32, [None, 1], name="y_placeholder")
 
-    layer_dimension = [n, 400, 50, 1]
+    layer_dimension = [n, 50, 1]
     n_layers = len(layer_dimension)
     w = [0 for i in range(n_layers)]
     b = [0 for i in range(n_layers)]
