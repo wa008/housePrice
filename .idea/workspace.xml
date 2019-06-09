@@ -2,14 +2,13 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/venv/kernels2.py" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/venv/test1.py" line="13" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/venv/test1.py" line="14" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f3e1832-0919-49bb-98db-605aa0a4e6ec" name="Default Changelist" comment="k">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/kernel5.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kernel5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/kernels4.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kernels4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pictures/result1.png" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pictures/result1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/result1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/result1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/test1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="435" column="31" selection-start-line="435" selection-start-column="31" selection-end-line="435" selection-end-column="31" />
+            <state relative-caret-position="462">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#44#63#0" expanded="true" />
               </folding>
@@ -40,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/kernel5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="435" column="31" selection-start-line="435" selection-start-column="31" selection-end-line="435" selection-end-column="31" />
+            <state>
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#44#63#0" expanded="true" />
               </folding>
@@ -63,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/visual1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="1320">
               <caret line="160" column="11" selection-start-line="160" selection-start-column="11" selection-end-line="160" selection-end-column="11" />
             </state>
           </provider>
@@ -105,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="242">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -140,16 +139,15 @@
         <option value="$PROJECT_DIR$/venv/kernels2.py" />
         <option value="$PROJECT_DIR$/venv/kernels3.py" />
         <option value="$PROJECT_DIR$/venv/visual1.py" />
-        <option value="$PROJECT_DIR$/venv/test1.py" />
         <option value="$PROJECT_DIR$/venv/result1.py" />
-        <option value="$PROJECT_DIR$/venv/kernels4.py" />
         <option value="$PROJECT_DIR$/venv/kernel5.py" />
+        <option value="$PROJECT_DIR$/venv/kernels4.py" />
+        <option value="$PROJECT_DIR$/venv/test1.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -196,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kernels4">
+  <component name="RunManager" selected="Python.test1">
     <configuration name="deeplearning1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="housePrice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -325,9 +323,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test1" />
         <item itemvalue="Python.kernel5" />
         <item itemvalue="Python.result1" />
-        <item itemvalue="Python.test1" />
         <item itemvalue="Python.visual1" />
         <item itemvalue="Python.deeplearning1" />
       </list>
@@ -350,12 +348,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14541623" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14541623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36767897" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26138827" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -418,23 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/deal_data1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/hello2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -454,13 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/visual1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="160" column="11" selection-start-line="160" selection-start-column="11" selection-end-line="160" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/result1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -468,23 +442,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+    <entry file="file://$PROJECT_DIR$/venv/kernel5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="435" column="31" selection-start-line="435" selection-start-column="31" selection-end-line="435" selection-end-column="31" />
+        <state>
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#44#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/kernel5.py">
+    <entry file="file://$PROJECT_DIR$/venv/deal_data1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="435" column="31" selection-start-line="435" selection-start-column="31" selection-end-line="435" selection-end-column="31" />
+        <state relative-caret-position="198">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/kernels4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#44#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/visual1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="160" column="11" selection-start-line="160" selection-start-column="11" selection-end-line="160" selection-end-column="11" />
         </state>
       </provider>
     </entry>

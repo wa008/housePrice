@@ -1,6 +1,7 @@
 import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 import numpy as np
+import pandas as pd
 import time
 def f1():
     a = [[1,2],[2,3]]
@@ -40,10 +41,22 @@ def f3():
 # f3()
 
 def f4():
-    x = np.array([1,2,3])
-    y = np.array([3,2,1])
-    print(10 - x)
-    print(max(x,y))
+    df1 = pd.DataFrame(
+        [['a','xx',10],
+        [3,4,4],
+        [11,12,13],
+        [13,14,14]],
+        columns = ['a', 'b', 'c']
+    )
+    df2 = pd.DataFrame(
+        [[1,2,10],
+        [3,4,4]],
+        columns = ['a', 'b', 'c']
+    )
+    print(df1)
+    df1 = pd.get_dummies(df1)
+    print(df1)
+
 
 if __name__ == '__main__':
     f4()

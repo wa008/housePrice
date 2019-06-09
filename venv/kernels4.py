@@ -55,7 +55,15 @@ df_train.loc[df_train['HasBsmt'] == 1, 'TotalBsmtSF'] = np.log(df_train['TotalBs
 
 # print(df_train.info())
 # convert categorical variable into dummy
+print('df_train.shape = ', df_train.shape)
+# col = ['OverallQual', 'GrLivArea', 'GarageCars', 'TotalBsmtSF', 'SalePrice']
+# df_train1 = df_train[col]
+# df_train2 = df_train.drop(col, axis=1)
+# df_train2 = pd.get_dummies(df_train2)
+# df_train = pd.concat([df_train1, df_train2], axis=1)
+
 df_train = pd.get_dummies(df_train)
+print('df_train.shape = ', df_train.shape)
 # print(df_train.shape)
 # print(df_train.info())
 
@@ -494,10 +502,10 @@ def neural_netword():
 
 # neural_netword()
 if __name__ == '__main__':
-    # lin_model()
+    lin_model()
     # svm_model()
     # dt_model()
     # rf_model()
     # xgb_model()
-    neural_netword()
+    # neural_netword()
 
